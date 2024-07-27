@@ -55,7 +55,7 @@ Load the Data:
 python load_data.py
 
 
-#### **File Structure**
+#file-structure
 ```markdown
 ## File Structure
 
@@ -64,8 +64,7 @@ python load_data.py
 - `loan_data.csv`: The CSV file containing the extracted loan data.
 - `requirements.txt`: List of required Python packages.
 
-License Information
-## License Information
+#license-information
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
