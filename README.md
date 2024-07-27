@@ -40,3 +40,35 @@ In the terminal, you will run the commands as part of the setup process:
 Install Dependencies:
 pip install -r requirements.txt
 
+
+#### **Usage Instructions**
+```markdown
+## Usage Instructions
+
+1. **Run the Script**:
+   To execute the `db_utils.py` script, use:
+   ```bash
+   python db_utils.py
+This script will extract data from the database and save it
+
+Load the Data:
+python load_data.py
+
+
+#### **File Structure**
+```markdown
+## File Structure
+
+- `db_utils.py`: Script for extracting data from the database.
+- `load_data.py`: Script for loading data into a Pandas DataFrame and displaying its structure.
+- `loan_data.csv`: The CSV file containing the extracted loan data.
+- `requirements.txt`: List of required Python packages.
+
+License Information
+## License Information
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+
+
