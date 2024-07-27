@@ -1,56 +1,4 @@
-# db_utils.py
-
-import pymysql  
-
-class RDSDatabaseConnector:
-    """
-    A class to connect to an RDS database and extract loan payment data.
-    """
-
-    def __init__(self, host, user, password, database):
-        """
-        Initialize the RDSDatabaseConnector with database connection parameters.
-
-        :param host: The hostname or IP address of the database server.
-        :param user: The username for the database connection.
-        :param password: The password for the database user.
-        :param database: The name of the database to connect to.
-        """
-        self.host = host
-        self.user = user
-        self.password = password
-        self.database = database
-        self.connection = None
-
-    def connect(self):
-        """
-        Establish a connection to the RDS database.
-        """
-        try:
-            self.connection = pymysql.connect(
-                host=self.host,
-                user=self.user,
-                password=self.password,
-                database=self.database
-            )
-            print("Connection to the database was successful.")
-        except pymysql.MySQLError as e:
-            print(f"Error connecting to the database: {e}")
-            self.connection = None
-
-    def disconnect(self):
-        """
-        Close the connection to the RDS database.
-        """
-        if self.connection:
-            self.connection.close()
-            print("Disconnected from the database.")
 import yaml
-
-def load_credentials(filepath):
-    with open(filepath, 'r') as file:
-        credentials = yaml.safe_load(file)
-    return credentials
 from sqlalchemy import create_engine
 import pandas as pd
 
@@ -62,15 +10,35 @@ class RDSDatabaseConnector:
         self.database = credentials['RDS_DATABASE']
         self.port = credentials['RDS_PORT']
         self.engine = None
+
     def init_engine(self):
         self.engine = create_engine(
             f'postgresql://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}'
         )
+
     def extract_data(self):
         if self.engine is None:
             raise Exception("Engine not initialized. Call init_engine() first.")
         query = "SELECT * FROM loan_payments"
         df = pd.read_sql(query, self.engine)
         return df
+
     def save_data_to_csv(self, df, filename):
         df.to_csv(filename, index=False)
+
+def load_credentials(filepath):
+    with open(filepath, 'r') as file:
+        credentials = yaml.safe_load(file)
+    return credentials
+
+credentials = load_credentials('credentials.yaml')
+
+connector = RDSDatabaseConnector(credentials)
+
+connector.init_engine()
+loan_data = connector.extract_data()
+
+csv_filename = 'loan_data.csv'
+connector.save_data_to_csv(loan_data, csv_filename)
+
+print(f"Data saved to {csv_filename}")
