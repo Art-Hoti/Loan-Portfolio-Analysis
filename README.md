@@ -23,6 +23,7 @@ Key aspects of the project include:
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/Art-Hoti/Loan-Portfolio-Analysis.git
+
 Navigate to the Project Directory:
 cd Loan-Portfolio-Analysis
 Install Dependencies: Ensure you have Python 3.x installed, and then run:
@@ -36,14 +37,14 @@ This script will extract data from the database and save it.
 Load the Data:
 To load the data into a Pandas DataFrame and print its structure, use:
 python load_data.py
-File Structure
 
+File Structure
 db_utils.py: Script for extracting data from the database.
 load_data.py: Script for loading data into a Pandas DataFrame and displaying its structure.
 loan_data.csv: The CSV file containing the extracted loan data.
 requirements.txt: List of required Python packages.
-License Information
 
+License Information
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 
