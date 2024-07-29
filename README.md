@@ -62,6 +62,7 @@ Loan-Portfolio-Analysis-1/
 └── data/                    # Directory to store data files
     └── loans_data.csv       # Extracted loan data.
 
+
 ## Licence Information
 
 This project is licensed under the MIT Licence. See the [LICENSE](LICENSE) file for details.
