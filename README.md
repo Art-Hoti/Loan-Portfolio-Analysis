@@ -1,55 +1,70 @@
-# Loan-Portfolio-Analysis
+# Loan Portfolio Analysis
 
 ## Table of Contents
-
-- [Description](#description)
-- [Installation Instructions](#installation-instructions)
-- [Usage Instructions](#usage-instructions)
-- [File Structure](#file-structure)
-- [License Information](#license-information)
+1. [Description](#description)
+2. [Installation Instructions](#installation-instructions)
+3. [Usage Instructions](#usage-instructions)
+4. [File Structure](#file-structure)
+5. [Licence Information](#licence-information)
 
 ## Description
 
 The Loan Portfolio Analysis project aims to perform exploratory data analysis (EDA) on a large financial institution’s loan portfolio. By analysing loan data, the project seeks to uncover patterns, relationships, and anomalies that will inform decisions regarding loan approvals, pricing, and risk management. The ultimate goal is to enhance the performance and profitability of the loan portfolio.
 
 Key aspects of the project include:
-
-- **Data Extraction**: Extracting loan data from a cloud database.
-- **Data Loading**: Loading data into a Pandas DataFrame for analysis.
-- **Data Analysis**: Investigating the dataset to understand its structure and characteristics.
+- **Data Extraction:** Extracting loan data from a cloud database.
+- **Data Loading:** Loading data into a Pandas DataFrame for analysis.
+- **Data Cleaning:** Handling missing values and transforming skewed data.
+- **Outlier Removal:** Identifying and removing outliers from the dataset.
+- **Correlation Analysis:** Dropping highly correlated columns to avoid multicollinearity.
+- **Data Visualisation:** Using visualisations to identify patterns and relationships.
 
 ## Installation Instructions
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/Art-Hoti/Loan-Portfolio-Analysis.git
+1. **Clone the Repository:**
+    ```bash
+    git clone https://github.com/Art-Hoti/Loan-Portfolio-Analysis-1.git
+    ```
 
-Navigate to the Project Directory:
-cd Loan-Portfolio-Analysis
-Install Dependencies: Ensure you have Python 3.x installed, and then run:
-pip install -r requirements.txt
+2. **Navigate to the Project Directory:**
+    ```bash
+    cd Loan-Portfolio-Analysis-1
+    ```
+
+3. **Install Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Usage Instructions
 
-Run the Script:
-To execute the db_utils.py script, use:
-python db_utils.py
-This script will extract data from the database and save it.
-Load the Data:
-To load the data into a Pandas DataFrame and print its structure, use:
-python load_data.py
+1. **Run the Data Extraction Script:**
+    ```bash
+    python data_extraction.py
+    ```
 
-## File Structure 
+2. **Perform EDA using Jupyter Notebooks:**
+    ```bash
+    jupyter notebook
+    ```
 
-db_utils.py: Script for extracting data from the database.
-load_data.py: Script for loading data into a Pandas DataFrame and displaying its structure.
-loan_data.csv: The CSV file containing the extracted loan data.
-requirements.txt: List of required Python packages.
+## File Structure
+```markdown 
+Loan-Portfolio-Analysis-1/
+│
+├── data_extraction.py       # Script to extract data from AWS RDS
+├── dataframe_transform.py   # Contains DataFrameTransform class for EDA transformations
+├── plotter.py               # Contains Plotter class for data visualisations
+├── requirements.txt         # Required Python packages
+├── README.md                # Project documentation
+├── notebooks/               # Jupyter notebooks for EDA
+│   └── eda.ipynb            # Main notebook for exploratory data analysis
+└── data/                    # Directory to store data files
+    └── loans_data.csv       # Extracted loan data.
 
-## License Information 
-This project is licensed under the MIT License. See the LICENSE file for details.
+```
 
+## Licence Information
 
-
-
+This project is licensed under the MIT Licence. See the [LICENSE](LICENSE) file for details.
 
